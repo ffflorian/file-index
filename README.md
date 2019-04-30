@@ -49,61 +49,61 @@ generateIndex('./')
 
 **Result**
 
-```js
+```json5
 {
-  "directories": {
-    ".github": {
-      "directories": {},
-      "files": {
-        "main.workflow": {
-          "fullPath": "/home/user/file-index/.github/main.workflow",
-          "name": "main.workflow",
-          "size": 1369,
-          "type": "file"
-        }
+  directories: {
+    '.github': {
+      directories: {},
+      files: {
+        'main.workflow': {
+          fullPath: '/home/user/file-index/.github/main.workflow',
+          name: 'main.workflow',
+          size: 1369,
+          type: 'file',
+        },
       },
-      "fullPath": "/home/user/file-index/.github/",
-      "links": {},
-      "name": ".github",
-      "type": "directory"
+      fullPath: '/home/user/file-index/.github/',
+      links: {},
+      name: '.github',
+      type: 'directory',
     },
-    "dist": {
-      "directories": {},
-      "files": {
-        "fileIndex.d.ts": {
-          "fullPath": "/home/user/file-index/dist/fileIndex.d.ts",
-          "name": "fileIndex.d.ts",
-          "size": 190,
-          "type": "file"
-        }
+    dist: {
+      directories: {},
+      files: {
+        'fileIndex.d.ts': {
+          fullPath: '/home/user/file-index/dist/fileIndex.d.ts',
+          name: 'fileIndex.d.ts',
+          size: 190,
+          type: 'file',
+        },
         // ...
       },
-      "fullPath": "/home/user/file-index/dist/",
-      "links": {},
-      "name": "dist",
-      "type": "directory"
+      fullPath: '/home/user/file-index/dist/',
+      links: {},
+      name: 'dist',
+      type: 'directory',
     },
-    "src": {
-      "directories": {},
-      "files": {
-        "fileIndex.ts": {
-          "fullPath": "/home/user/file-index/src/fileIndex.ts",
-          "name": "fileIndex.ts",
-          "size": 2635,
-          "type": "file"
-        }
+    src: {
+      directories: {},
+      files: {
+        'fileIndex.ts': {
+          fullPath: '/home/user/file-index/src/fileIndex.ts',
+          name: 'fileIndex.ts',
+          size: 2635,
+          type: 'file',
+        },
         // ...
       },
-      "fullPath": "/home/user/file-index/src/",
-      "links": {},
-      "name": "src",
-      "type": "directory"
-    }
+      fullPath: '/home/user/file-index/src/',
+      links: {},
+      name: 'src',
+      type: 'directory',
+    },
     // ...
   },
-  "fullPath": "/home/user/file-index/",
-  "links": {},
-  "name": "file-index",
-  "type": "directory"
+  fullPath: '/home/user/file-index/',
+  links: {},
+  name: 'file-index',
+  type: 'directory',
 }
 ```

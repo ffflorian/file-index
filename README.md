@@ -49,7 +49,7 @@ generateIndex('./')
 
 **Result**
 
-```json5
+```js
 {
   directories: {
     '.github': {

@@ -14,6 +14,7 @@ function getBaseIndex(directory: string): {fileIndex: DirEntry; resolvedDir: str
     directories: {},
     files: {},
     fullPath: `${resolvedDir}${path.sep}`,
+    links: {},
     name: path.basename(resolvedDir),
     type: 'directory',
   };
@@ -35,9 +36,16 @@ export async function generateIndex(directory: string): Promise<DirEntry> {
         fileIndex.files[fileName] = {
           fullPath: resolvedFile,
           name: path.basename(resolvedFile),
+          size: lstat.size,
           type: 'file',
         };
-      } else {
+      } else if (lstat.isSymbolicLink()) {
+        fileIndex.links[fileName] = {
+          fullPath: resolvedFile,
+          name: path.basename(resolvedFile),
+          type: 'link',
+        };
+      } else if (lstat.isDirectory()) {
         const deepIndex = await generateIndex(resolvedFile);
         fileIndex.directories[fileName] = deepIndex;
       }
@@ -51,7 +59,7 @@ export async function generateIndex(directory: string): Promise<DirEntry> {
   return fileIndex;
 }
 
-export function generateFileTreeSync(directory: string): DirEntry {
+export function generateIndexSync(directory: string): DirEntry {
   const {fileIndex, resolvedDir} = getBaseIndex(directory);
 
   try {
@@ -65,10 +73,17 @@ export function generateFileTreeSync(directory: string): DirEntry {
         fileIndex.files[fileName] = {
           fullPath: resolvedFile,
           name: path.basename(resolvedFile),
+          size: lstat.size,
           type: 'file',
         };
-      } else {
-        const deepIndex = generateFileTreeSync(resolvedFile);
+      } else if (lstat.isSymbolicLink()) {
+        fileIndex.links[fileName] = {
+          fullPath: resolvedFile,
+          name: path.basename(resolvedFile),
+          type: 'link',
+        };
+      } else if (lstat.isDirectory()) {
+        const deepIndex = generateIndexSync(resolvedFile);
         fileIndex.directories[fileName] = deepIndex;
       }
     });

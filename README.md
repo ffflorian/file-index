@@ -8,12 +8,39 @@ Run `yarn add @ffflorian/file-index` or `npm install @ffflorian/file-index`.
 
 ## Usage
 
+**Definition**
+
+```ts
+function generateIndex(directory: string): Promise<DirEntry>;
+function generateIndexSync(directory: string): DirEntry;
+
+interface FileEntry {
+  fullPath: string;
+  name: string;
+  size: number;
+  type: 'file';
+}
+
+interface LinkEntry {
+  fullPath: string;
+  name: string;
+  type: 'link';
+}
+
+interface DirEntry extends Entry {
+  directories: {[name: string]: DirEntry};
+  files: {[name: string]: FileEntry};
+  links: {[name: string]: LinkEntry};
+  type: 'directory';
+}
+```
+
 **YourFile.ts**
 
 ```ts
 import {generateIndex} from '@ffflorian/file-index';
 
-generateIndex('./src')
+generateIndex('./')
   .then(index => {
     // see result
   })
@@ -24,30 +51,59 @@ generateIndex('./src')
 
 ```json
 {
-  "directories": {},
-  "files": {
-    "fileIndex.ts": {
-      "fullPath": "/home/user/file-index/src/fileIndex.ts",
-      "name": "fileIndex.ts",
-      "size": 2635,
-      "type": "file"
+  "directories": {
+    ".github": {
+      "directories": {},
+      "files": {
+        "main.workflow": {
+          "fullPath": "/home/user/file-index/.github/main.workflow",
+          "name": "main.workflow",
+          "size": 1369,
+          "type": "file"
+        }
+      },
+      "fullPath": "/home/user/file-index/.github/",
+      "links": {},
+      "name": ".github",
+      "type": "directory"
     },
-    "index.ts": {
-      "fullPath": "/home/user/file-index/src/index.ts",
-      "name": "index.ts",
-      "size": 59,
-      "type": "file"
+    "dist": {
+      "directories": {},
+      "files": {
+        "fileIndex.d.ts": {
+          "fullPath": "/home/user/file-index/dist/fileIndex.d.ts",
+          "name": "fileIndex.d.ts",
+          "size": 190,
+          "type": "file"
+        }
+        // ...
+      },
+      "fullPath": "/home/user/file-index/dist/",
+      "links": {},
+      "name": "dist",
+      "type": "directory"
     },
-    "interfaces.ts": {
-      "fullPath": "/home/user/file-index/src/interfaces.ts",
-      "name": "interfaces.ts",
-      "size": 421,
-      "type": "file"
+    "src": {
+      "directories": {},
+      "files": {
+        "fileIndex.ts": {
+          "fullPath": "/home/user/file-index/src/fileIndex.ts",
+          "name": "fileIndex.ts",
+          "size": 2635,
+          "type": "file"
+        }
+        // ...
+      },
+      "fullPath": "/home/user/file-index/src/",
+      "links": {},
+      "name": "src",
+      "type": "directory"
     }
+    // ...
   },
-  "fullPath": "/home/user/file-index/src/",
+  "fullPath": "/home/user/file-index/",
   "links": {},
-  "name": "src",
+  "name": "file-index",
   "type": "directory"
 }
 ```

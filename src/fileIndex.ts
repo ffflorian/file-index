@@ -2,26 +2,27 @@ import * as fs from 'fs';
 import * as path from 'path';
 import {promisify} from 'util';
 
+import {DirEntry} from './interfaces';
+
 const readdirAsync = promisify(fs.readdir);
 const lstatAsync = promisify(fs.lstat);
 
-import {DirEntry} from './interfaces';
-
-function getBaseIndex(directory: string): DirEntry {
+function getBaseIndex(directory: string): {fileIndex: DirEntry; resolvedDir: string} {
   const resolvedDir = path.resolve(directory);
 
-  return {
+  const fileIndex: DirEntry = {
     directories: {},
     files: {},
     fullPath: `${resolvedDir}${path.sep}`,
     name: path.basename(resolvedDir),
     type: 'directory',
   };
+
+  return {fileIndex, resolvedDir};
 }
 
 export async function generateIndex(directory: string): Promise<DirEntry> {
-  const resolvedDir = path.resolve(directory);
-  const fileIndex = getBaseIndex(directory);
+  const {fileIndex, resolvedDir} = getBaseIndex(directory);
 
   try {
     const dirObjects = await readdirAsync(resolvedDir);
@@ -51,8 +52,7 @@ export async function generateIndex(directory: string): Promise<DirEntry> {
 }
 
 export function generateFileTreeSync(directory: string): DirEntry {
-  const resolvedDir = path.resolve(directory);
-  const fileIndex = getBaseIndex(directory);
+  const {fileIndex, resolvedDir} = getBaseIndex(directory);
 
   try {
     const dirObjects = fs.readdirSync(resolvedDir);

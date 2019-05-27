@@ -1,3 +1,9 @@
+# [1.2.0](https://github.com/ffflorian/file-index/compare/v1.1.0...v1.2.0) (2019-05-27)
+
+### Features
+
+- Force release ([96c68bd](https://github.com/ffflorian/file-index/commit/96c68bd))
+
 # [1.1.0](https://github.com/ffflorian/file-index/compare/v1.0.0...v1.1.0) (2019-04-30)
 
 ### Features

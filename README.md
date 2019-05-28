@@ -1,4 +1,4 @@
-# file-index [![npm version](https://img.shields.io/npm/v/@ffflorian/file-index.svg?style=flat)](https://www.npmjs.com/package/@ffflorian/file-index) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=ffflorian/file-index)](https://dependabot.com)
+# file-index [![Build Status](https://action-badges.now.sh/ffflorian/file-index)](https://github.com/ffflorian/file-index/actions/) [![npm version](https://img.shields.io/npm/v/@ffflorian/file-index.svg?style=flat)](https://www.npmjs.com/package/@ffflorian/file-index) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=ffflorian/file-index)](https://dependabot.com)
 
 Generate a file index.
 

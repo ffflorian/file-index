@@ -51,12 +51,14 @@
     "build": "tsc",
     "clear": "rimraf dist",
     "dist": "yarn clear && yarn build",
+    "fix": "yarn fix:other && yarn fix:ts",
+    "fix:other": "yarn prettier --write",
+    "fix:ts": "yarn lint:ts --fix",
     "lint": "yarn lint:ts && yarn lint:other",
     "lint:other": "yarn prettier --list-different",
     "lint:ts": "tslint --project tsconfig.json \"**/*.ts\"",
     "prettier": "prettier \"*.{json,md}\"",
-    "release": "semantic-release",
-    "test": "exit 0"
+    "release": "semantic-release"
   },
   "version": "1.2.0"
 }

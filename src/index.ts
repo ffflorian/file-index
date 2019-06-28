@@ -1,2 +1,2 @@
-export * from './fileIndex';
+export * from './FileIndex';
 export * from './interfaces';

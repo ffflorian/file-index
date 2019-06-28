@@ -22,8 +22,14 @@ function getBaseIndex(directory: string): {fileIndex: DirEntry; resolvedDir: str
   return {fileIndex, resolvedDir};
 }
 
-export async function generateIndex(directory: string): Promise<DirEntry> {
+export async function generateIndex(directory: string, depth = Infinity): Promise<DirEntry> {
   const {fileIndex, resolvedDir} = getBaseIndex(directory);
+
+  depth = depth - 1;
+
+  if (depth <= 0) {
+    return fileIndex;
+  }
 
   try {
     const dirObjects = await readdirAsync(resolvedDir);
@@ -46,7 +52,7 @@ export async function generateIndex(directory: string): Promise<DirEntry> {
           type: 'link',
         };
       } else if (lstat.isDirectory()) {
-        const deepIndex = await generateIndex(resolvedFile);
+        const deepIndex = await generateIndex(resolvedFile, depth);
         fileIndex.directories[fileName] = deepIndex;
       }
     });
@@ -59,8 +65,14 @@ export async function generateIndex(directory: string): Promise<DirEntry> {
   return fileIndex;
 }
 
-export function generateIndexSync(directory: string): DirEntry {
+export function generateIndexSync(directory: string, depth = Infinity): DirEntry {
   const {fileIndex, resolvedDir} = getBaseIndex(directory);
+
+  depth = depth - 1;
+
+  if (depth <= 0) {
+    return fileIndex;
+  }
 
   try {
     const dirObjects = fs.readdirSync(resolvedDir);
@@ -83,7 +95,7 @@ export function generateIndexSync(directory: string): DirEntry {
           type: 'link',
         };
       } else if (lstat.isDirectory()) {
-        const deepIndex = generateIndexSync(resolvedFile);
+        const deepIndex = generateIndexSync(resolvedFile, depth);
         fileIndex.directories[fileName] = deepIndex;
       }
     });

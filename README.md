@@ -45,6 +45,12 @@ generateIndex('./')
     // see result
   })
   .catch(error => console.error(error));
+
+generateIndex('./', 5) // with depth of 5
+  .then(index => {
+    // see result
+  })
+  .catch(error => console.error(error));
 ```
 
 **Result**
@@ -86,9 +92,9 @@ generateIndex('./')
     src: {
       directories: {},
       files: {
-        'fileIndex.ts': {
-          fullPath: '/home/user/file-index/src/fileIndex.ts',
-          name: 'fileIndex.ts',
+        'FileIndex.ts': {
+          fullPath: '/home/user/file-index/src/FileIndex.ts',
+          name: 'FileIndex.ts',
           size: 2635,
           type: 'file',
         },

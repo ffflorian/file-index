@@ -1,3 +1,9 @@
+# [1.3.0](https://github.com/ffflorian/file-index/compare/v1.2.0...v1.3.0) (2019-06-28)
+
+### Features
+
+- Add depth ([569b85b](https://github.com/ffflorian/file-index/commit/569b85b))
+
 # [1.2.0](https://github.com/ffflorian/file-index/compare/v1.1.0...v1.2.0) (2019-05-27)
 
 ### Features

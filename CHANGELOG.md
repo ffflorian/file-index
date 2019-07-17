@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/ffflorian/file-index/compare/v1.3.0...v2.0.0) (2019-07-17)
+
+### Features
+
+- Set ES6 as target and require Node >= 10.9 ([#64](https://github.com/ffflorian/file-index/issues/64)) ([11dc384](https://github.com/ffflorian/file-index/commit/11dc384))
+
+### BREAKING CHANGES
+
+- Node.js >= 10.9 is required.
+
 # [1.3.0](https://github.com/ffflorian/file-index/compare/v1.2.0...v1.3.0) (2019-06-28)
 
 ### Features

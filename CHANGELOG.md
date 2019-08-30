@@ -1,3 +1,9 @@
+## [2.0.1](https://github.com/ffflorian/file-index/compare/v2.0.0...v2.0.1) (2019-08-30)
+
+### Bug Fixes
+
+- package description ([8bd8d3d](https://github.com/ffflorian/file-index/commit/8bd8d3d))
+
 # [2.0.0](https://github.com/ffflorian/file-index/compare/v1.3.0...v2.0.0) (2019-07-17)
 
 ### Features

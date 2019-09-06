@@ -1,3 +1,9 @@
+# [2.1.0](https://github.com/ffflorian/file-index/compare/v2.0.1...v2.1.0) (2019-09-06)
+
+### Features
+
+- Publish flattened ([b17b88f](https://github.com/ffflorian/file-index/commit/b17b88f))
+
 ## [2.0.1](https://github.com/ffflorian/file-index/compare/v2.0.0...v2.0.1) (2019-08-30)
 
 ### Bug Fixes

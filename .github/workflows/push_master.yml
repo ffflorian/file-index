@@ -20,6 +20,7 @@ jobs:
           yarn
           yarn lint
           yarn dist
+          yarn flatten
           git config --global "user.email" "${GIT_EMAIL}"
           git config --global "user.name" "${GIT_NAME}"
           REPO_URL="$(git remote get-url origin | sed -n "s/https:\/\/github.com\//https:\/\/${GIT_AUTHOR_NAME}:${GH_TOKEN}@github.com\//p")"

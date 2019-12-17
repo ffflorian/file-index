@@ -68,7 +68,8 @@
     "lint:ts": "tslint --project tsconfig.json \"**/*.ts\"",
     "postversion": "node ../node_modules/publish-flat/cli-copy.js -i package.json -o ../package.json version",
     "prettier": "prettier \"*.{json,md}\"",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "test": "exit 0"
   },
   "version": "2.1.0"
 }

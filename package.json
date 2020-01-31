@@ -10,7 +10,7 @@
     "@semantic-release/git": "8.0.0",
     "@types/node": "~12",
     "husky": "4.2.1",
-    "lint-staged": "10.0.4",
+    "lint-staged": "10.0.6",
     "prettier": "1.19.1",
     "publish-flat": "1.4.0",
     "rimraf": "3.0.1",

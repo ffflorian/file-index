@@ -27,7 +27,7 @@
     "prettier": "2.0.5",
     "publish-flat": "1.4.0",
     "rimraf": "3.0.2",
-    "semantic-release": "17.0.7",
+    "semantic-release": "17.0.8",
     "typescript": "3.9.3"
   },
   "engines": {
